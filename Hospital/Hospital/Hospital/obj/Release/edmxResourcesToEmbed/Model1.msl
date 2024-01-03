@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HOV_HospitalModelStoreContainer" CdmEntityContainer="HOV_HospitalEntities">
+    <EntitySetMapping Name="doctors">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.doctor">
+        <MappingFragment StoreEntitySet="doctor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="doctor_category_id" ColumnName="doctor_category_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="city_of_birth" ColumnName="city_of_birth" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="assigned_room" ColumnName="assigned_room" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doctor_category">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.doctor_category">
+        <MappingFragment StoreEntitySet="doctor_category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="icd_11">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.icd_11">
+        <MappingFragment StoreEntitySet="icd-11">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="icd_11_doctor_recommendation">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.icd_11_doctor_recommendation">
+        <MappingFragment StoreEntitySet="icd-11_doctor_recommendation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="icd_11_id" ColumnName="icd-11_id" />
+          <ScalarProperty Name="doctor_category_id" ColumnName="doctor_category_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="icd_11_exclusion">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.icd_11_exclusion">
+        <MappingFragment StoreEntitySet="icd-11_exclusion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="icd_11_id" ColumnName="icd-11_id" />
+          <ScalarProperty Name="exclusion" ColumnName="exclusion" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="meetings">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.meeting">
+        <MappingFragment StoreEntitySet="meeting">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+          <ScalarProperty Name="room" ColumnName="room" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="queue_number" ColumnName="queue_number" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="patients">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.patient">
+        <MappingFragment StoreEntitySet="patient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="city_of_birth" ColumnName="city_of_birth" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="blood_type" ColumnName="blood_type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="patient_record">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.patient_record">
+        <MappingFragment StoreEntitySet="patient_record">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+          <ScalarProperty Name="meeting_id" ColumnName="meeting_id" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="meeting_id" ColumnName="meeting_id" />
+          <ScalarProperty Name="card_holder_name" ColumnName="card_holder_name" />
+          <ScalarProperty Name="primary_account_number" ColumnName="primary_account_number" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="service_code" ColumnName="service_code" />
+          <ScalarProperty Name="total_payment" ColumnName="total_payment" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_detail">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.payment_detail">
+        <MappingFragment StoreEntitySet="payment_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="nominal" ColumnName="nominal" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_updated_at" ColumnName="last_updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HOV_HospitalModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

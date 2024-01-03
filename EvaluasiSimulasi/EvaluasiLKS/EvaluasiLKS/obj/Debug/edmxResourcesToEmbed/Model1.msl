@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EsemkaHeroModelStoreContainer" CdmEntityContainer="EsemkaHeroEntities">
+    <EntitySetMapping Name="Clans">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.Clan">
+        <MappingFragment StoreEntitySet="Clan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elements">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.Element">
+        <MappingFragment StoreEntitySet="Element">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Element1" ColumnName="Element" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FightHistories">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.FightHistory">
+        <MappingFragment StoreEntitySet="FightHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Hero1ID" ColumnName="Hero1ID" />
+          <ScalarProperty Name="Hero2ID" ColumnName="Hero2ID" />
+          <ScalarProperty Name="Hero1TotalPower" ColumnName="Hero1TotalPower" />
+          <ScalarProperty Name="Hero2TotalPower" ColumnName="Hero2TotalPower" />
+          <ScalarProperty Name="FightDate" ColumnName="FightDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Heroes">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.Hero">
+        <MappingFragment StoreEntitySet="Hero">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="ClanID" ColumnName="ClanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeroSkills">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.HeroSkill">
+        <MappingFragment StoreEntitySet="HeroSkill">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HeroID" ColumnName="HeroID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="EsemkaHeroModel.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ElementID" ColumnName="ElementID" />
+          <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

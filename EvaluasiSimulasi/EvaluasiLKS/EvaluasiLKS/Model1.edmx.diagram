@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7e3b357193447858a85460fbaa414a6" Name="Diagram1">
+        <EntityTypeShape EntityType="EsemkaHeroModel.Clan" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaHeroModel.Element" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaHeroModel.FightHistory" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaHeroModel.Hero" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaHeroModel.HeroSkill" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaHeroModel.Skill" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_Hero_Clan" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_Skill_Element" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_FightHistory_Hero1" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_FightHistory_Hero2" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_HeroSkill_Hero" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaHeroModel.FK_HeroSkill_Skill" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

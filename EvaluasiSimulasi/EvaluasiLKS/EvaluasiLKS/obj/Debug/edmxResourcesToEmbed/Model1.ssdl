@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EsemkaHeroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="text" />
+  </EntityType>
+  <EntityType Name="Element">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Element" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FightHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hero1ID" Type="int" Nullable="false" />
+    <Property Name="Hero2ID" Type="int" Nullable="false" />
+    <Property Name="Hero1TotalPower" Type="float" Nullable="false" />
+    <Property Name="Hero2TotalPower" Type="float" Nullable="false" />
+    <Property Name="FightDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hero">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="text" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="ClanID" Type="int" />
+  </EntityType>
+  <EntityType Name="HeroSkill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HeroID" Type="int" Nullable="false" />
+    <Property Name="SkillID" Type="int" Nullable="false" />
+    <Property Name="Power" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="text" />
+    <Property Name="ElementID" Type="int" />
+    <Property Name="DifficultyLevel" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FightHistory_Hero1">
+    <End Role="Hero" Type="Self.Hero" Multiplicity="1" />
+    <End Role="FightHistory" Type="Self.FightHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hero">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FightHistory">
+        <PropertyRef Name="Hero1ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FightHistory_Hero2">
+    <End Role="Hero" Type="Self.Hero" Multiplicity="1" />
+    <End Role="FightHistory" Type="Self.FightHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hero">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FightHistory">
+        <PropertyRef Name="Hero2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hero_Clan">
+    <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+    <End Role="Hero" Type="Self.Hero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hero">
+        <PropertyRef Name="ClanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeroSkill_Hero">
+    <End Role="Hero" Type="Self.Hero" Multiplicity="1" />
+    <End Role="HeroSkill" Type="Self.HeroSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hero">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HeroSkill">
+        <PropertyRef Name="HeroID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeroSkill_Skill">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+    <End Role="HeroSkill" Type="Self.HeroSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HeroSkill">
+        <PropertyRef Name="SkillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Element">
+    <End Role="Element" Type="Self.Element" Multiplicity="0..1" />
+    <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Element">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="ElementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EsemkaHeroModelStoreContainer">
+    <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Element" EntityType="Self.Element" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FightHistory" EntityType="Self.FightHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hero" EntityType="Self.Hero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HeroSkill" EntityType="Self.HeroSkill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FightHistory_Hero1" Association="Self.FK_FightHistory_Hero1">
+      <End Role="Hero" EntitySet="Hero" />
+      <End Role="FightHistory" EntitySet="FightHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FightHistory_Hero2" Association="Self.FK_FightHistory_Hero2">
+      <End Role="Hero" EntitySet="Hero" />
+      <End Role="FightHistory" EntitySet="FightHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hero_Clan" Association="Self.FK_Hero_Clan">
+      <End Role="Clan" EntitySet="Clan" />
+      <End Role="Hero" EntitySet="Hero" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeroSkill_Hero" Association="Self.FK_HeroSkill_Hero">
+      <End Role="Hero" EntitySet="Hero" />
+      <End Role="HeroSkill" EntitySet="HeroSkill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeroSkill_Skill" Association="Self.FK_HeroSkill_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="HeroSkill" EntitySet="HeroSkill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Element" Association="Self.FK_Skill_Element">
+      <End Role="Element" EntitySet="Element" />
+      <End Role="Skill" EntitySet="Skill" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

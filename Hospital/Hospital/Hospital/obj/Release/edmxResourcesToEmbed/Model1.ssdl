@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HOV_HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doctor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doctor_category_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="phone_number" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="city_of_birth" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="date_of_birth" Type="datetime" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="assigned_room" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="doctor_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="icd-11">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="icd-11_doctor_recommendation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="icd-11_id" Type="int" Nullable="false" />
+    <Property Name="doctor_category_id" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="icd-11_exclusion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="icd-11_id" Type="int" Nullable="false" />
+    <Property Name="exclusion" Type="text" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="meeting">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patient_id" Type="int" Nullable="false" />
+    <Property Name="doctor_id" Type="int" Nullable="false" />
+    <Property Name="room" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="queue_number" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="patient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="phone_number" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="city_of_birth" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="date_of_birth" Type="datetime" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="blood_type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="patient_record">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patient_id" Type="int" Nullable="false" />
+    <Property Name="meeting_id" Type="int" Nullable="false" />
+    <Property Name="notes" Type="text" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="meeting_id" Type="int" Nullable="false" />
+    <Property Name="card_holder_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="primary_account_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="expiration_date" Type="date" Nullable="false" />
+    <Property Name="service_code" Type="int" Nullable="false" />
+    <Property Name="total_payment" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="payment_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment_id" Type="int" Nullable="false" />
+    <Property Name="item" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="nominal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="notes" Type="text" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="last_updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__doctor__doctor_c__33D4B598">
+    <End Role="doctor_category" Type="Self.doctor_category" Multiplicity="1" />
+    <End Role="doctor" Type="Self.doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="doctor">
+        <PropertyRef Name="doctor_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__icd-11_do__docto__300424B4">
+    <End Role="doctor_category" Type="Self.doctor_category" Multiplicity="1" />
+    <End Role="icd-11_doctor_recommendation" Type="Self.icd-11_doctor_recommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="icd-11_doctor_recommendation">
+        <PropertyRef Name="doctor_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__icd-11_do__icd-1__2F10007B">
+    <End Role="icd-11" Type="Self.icd-11" Multiplicity="1" />
+    <End Role="icd-11_doctor_recommendation" Type="Self.icd-11_doctor_recommendation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icd-11">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="icd-11_doctor_recommendation">
+        <PropertyRef Name="icd-11_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__icd-11_ex__icd-1__286302EC">
+    <End Role="icd-11" Type="Self.icd-11" Multiplicity="1" />
+    <End Role="icd-11_exclusion" Type="Self.icd-11_exclusion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="icd-11">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="icd-11_exclusion">
+        <PropertyRef Name="icd-11_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__meeting__doctor___3D5E1FD2">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="meeting" Type="Self.meeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="meeting">
+        <PropertyRef Name="doctor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__meeting__patient__3C69FB99">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="meeting" Type="Self.meeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="meeting">
+        <PropertyRef Name="patient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__patient_r__meeti__4222D4EF">
+    <End Role="meeting" Type="Self.meeting" Multiplicity="1" />
+    <End Role="patient_record" Type="Self.patient_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="meeting">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="patient_record">
+        <PropertyRef Name="meeting_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__patient_r__patie__412EB0B6">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="patient_record" Type="Self.patient_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="patient_record">
+        <PropertyRef Name="patient_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__payment__meeting__45F365D3">
+    <End Role="meeting" Type="Self.meeting" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="meeting">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="meeting_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__payment_d__payme__4AB81AF0">
+    <End Role="payment" Type="Self.payment" Multiplicity="1" />
+    <End Role="payment_detail" Type="Self.payment_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="payment_detail">
+        <PropertyRef Name="payment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HOV_HospitalModelStoreContainer">
+    <EntitySet Name="doctor" EntityType="Self.doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doctor_category" EntityType="Self.doctor_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="icd-11" EntityType="Self.icd-11" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="icd-11_doctor_recommendation" EntityType="Self.icd-11_doctor_recommendation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="icd-11_exclusion" EntityType="Self.icd-11_exclusion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="patient_record" EntityType="Self.patient_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment_detail" EntityType="Self.payment_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__doctor__doctor_c__33D4B598" Association="Self.FK__doctor__doctor_c__33D4B598">
+      <End Role="doctor_category" EntitySet="doctor_category" />
+      <End Role="doctor" EntitySet="doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__icd-11_do__docto__300424B4" Association="Self.FK__icd-11_do__docto__300424B4">
+      <End Role="doctor_category" EntitySet="doctor_category" />
+      <End Role="icd-11_doctor_recommendation" EntitySet="icd-11_doctor_recommendation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__icd-11_do__icd-1__2F10007B" Association="Self.FK__icd-11_do__icd-1__2F10007B">
+      <End Role="icd-11" EntitySet="icd-11" />
+      <End Role="icd-11_doctor_recommendation" EntitySet="icd-11_doctor_recommendation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__icd-11_ex__icd-1__286302EC" Association="Self.FK__icd-11_ex__icd-1__286302EC">
+      <End Role="icd-11" EntitySet="icd-11" />
+      <End Role="icd-11_exclusion" EntitySet="icd-11_exclusion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__meeting__doctor___3D5E1FD2" Association="Self.FK__meeting__doctor___3D5E1FD2">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="meeting" EntitySet="meeting" />
+    </AssociationSet>
+    <AssociationSet Name="FK__meeting__patient__3C69FB99" Association="Self.FK__meeting__patient__3C69FB99">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="meeting" EntitySet="meeting" />
+    </AssociationSet>
+    <AssociationSet Name="FK__patient_r__meeti__4222D4EF" Association="Self.FK__patient_r__meeti__4222D4EF">
+      <End Role="meeting" EntitySet="meeting" />
+      <End Role="patient_record" EntitySet="patient_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK__patient_r__patie__412EB0B6" Association="Self.FK__patient_r__patie__412EB0B6">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="patient_record" EntitySet="patient_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment__meeting__45F365D3" Association="Self.FK__payment__meeting__45F365D3">
+      <End Role="meeting" EntitySet="meeting" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment_d__payme__4AB81AF0" Association="Self.FK__payment_d__payme__4AB81AF0">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="payment_detail" EntitySet="payment_detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

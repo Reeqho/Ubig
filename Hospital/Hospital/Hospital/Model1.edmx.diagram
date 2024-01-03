@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32cf3570ef97422c95c6eb19cade83fa" Name="Diagram1">
+        <EntityTypeShape EntityType="HOV_HospitalModel.doctor" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.doctor_category" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.icd_11" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.icd_11_doctor_recommendation" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.icd_11_exclusion" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.meeting" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.patient" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.patient_record" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.payment" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.payment_detail" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOV_HospitalModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__doctor__doctor_c__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__meeting__doctor___3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__icd_11_do__docto__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__icd_11_do__icd_1__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__icd_11_ex__icd_1__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__meeting__patient__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__patient_r__meeti__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__payment__meeting__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__patient_r__patie__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="HOV_HospitalModel.FK__payment_d__payme__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
