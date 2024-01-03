@@ -1,9 +1,0 @@
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.csproj.AssemblyReference.cache
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Main_Form.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Master_Doctor.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Master_Inter.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Master_Patient.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Meetings.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.Properties.Resources.resources
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.csproj.GenerateResource.cache
-C:\Users\Yanna\Documents\Ubig\Hospital\Hospital\Hospital\obj\Release\Hospital.csproj.CoreCompileInputs.cache
